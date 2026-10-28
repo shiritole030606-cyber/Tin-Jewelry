@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Jewelry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-page">
+    <header>
+        <nav class=" navbar">
+            <div class="logo">
+                <img src="picture/9e34cae4-4747-4e1a-8e1a-92f9b9700e99.jpg" alt="">
+            </div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">☰</label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-cart">
+                <label class="search-wrapper">
+                    <input type="text" placeholder="Search...">
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </label>
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+                <div class="header-auth-buttons">
+                    <a href="contact.html?view=login" class="header-auth-btn">Đăng nhập</a>
+                    <a href="contact.html?view=register" class="header-auth-btn">Đăng ký</a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <section class="banner">
+        <div class="banner-slides">
+            <img src="picture/1-1.jpg" alt="Banner 1">
+            <img src="picture/gia-nhan-cuoi-vang-tay-4.jpg" alt="Banner 2">
+            <img src="picture/vong vang.png" alt="Banner 3">
+        </div>
+        <button class="prev-btn">&lt;</button>
+        <button class="next-btn">&gt;</button>
+        <div class="dots">
+            <span class="dot active" data-slide="0"></span>
+            <span class="dot" data-slide="1"></span>
+            <span class="dot" data-slide="2"></span>
+        </div>
+        <h1>Khuyến mãi trang sức! Giảm giá 10% đối với tất cả sản phẩm! Mừng ngày 14/04</h1>
+    </section>
+    <div class="container">
+        <h2 class="section-title">
+            <span>Sản phẩm nổi bật</span>
+        </h2>
+        <section class="products latest-products"></section>
+    </div>
+    <section class="about-us">
+        <div class="container">
+            <h2 class="section-title">
+                <a href="about.html" style="text-decoration:none; color: black;">
+                    Về Chúng Tôi</a>
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Tin Jewelry - Nơi Tạo Nên Sự Sang Trọng</h3>
+                    <p>Chào mừng bạn đến với Tin Jewelry, điểm đến tin cậy cho những món trang sức thủ công tinh tế. Bộ
+                        sưu tập của chúng tôi bao gồm nhẫn, dây chuyền, hoa tai và nhiều hơn nữa - tất cả đều được thiết
+                        kế để mang lại sự lấp lánh cho cuộc sống của bạn.</p>
+                    <p>Với cam kết về chất lượng cao cấp và dịch vụ khách hàng xuất sắc, chúng tôi mang đến những món đồ
+                        trang sức không chỉ đẹp mắt mà còn ý nghĩa và bền vững theo thời gian.</p>
+                    <a href="about.html" class="btn">Tìm Hiểu Thêm</a>
+                </div>
+                <div class="about-image">
+                    <img src="picture/9e34cae4-4747-4e1a-8e1a-92f9b9700e99.jpg" alt="About Tin Jewelry">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        const slides = document.querySelectorAll('.banner-slides img');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dots = document.querySelectorAll('.dot');
+        let currentSlide = 0;
+        let autoSlide = setInterval(nextSlide, 3000);
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoSlide();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoSlide();
+        });
+
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetAutoSlide();
+            });
+        });
+
+        function resetAutoSlide() {
+            clearInterval(autoSlide);
+            autoSlide = setInterval(nextSlide, 3000);
+        }
+
+        showSlide(currentSlide);
+    </script>
+    <script src="script.js"></script>
+</body>
+<footer class="site-footer">
+        <div class="site-footer__content">
+            <div class="site-footer__section">
+                <h3>Contact Us</h3>
+                <p>123 Jewelry Street, Hanoi, Vietnam</p>
+                <p>Email: support@tinjewelry.com</p>
+                <p>Phone: +84 123 456 789</p>
+            </div>
+            <div class="site-footer__section">
+                <h3>Our Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1234567890123!2d105.83416031500
+                    000!3d21.0277633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab81c6a5a1fb%3A0x0!2zMj
+                    EgVHJ1biBTb2kgVGnDqm4!5e0!3m2!1sen!2s!4v0000000000000" width="300" height="200" style="border:0;"
+                    allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="site-footer__section">
+                <h3>Follow Us</h3>
+                <a href="#" class="site-footer__link"><i class="fab fa-facebook-f"></i> Facebook</a> |
+                <a href="#" class="site-footer__link"><i class="fab fa-instagram"></i> Instagram</a> |
+                <a href="#" class="site-footer__link"><i class="fab fa-youtube"></i> YouTube</a>
+            </div>
+        </div>
+    </footer>
+</html>

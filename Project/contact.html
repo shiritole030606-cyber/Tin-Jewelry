@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Jewelry - Liên hệ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="contact-page">
+    <header>
+        <nav class=" navbar">
+            <div class="logo">
+                <img src="picture/9e34cae4-4747-4e1a-8e1a-92f9b9700e99.jpg" alt="">
+            </div>
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">☰</label>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="search-cart">
+                <label class="search-wrapper">
+                    <input type="text" placeholder="Search...">
+                    <span class="search-icon"><i class="fas fa-search"></i></span>
+                </label>
+                <a href="cart.html" class="cart"><i class="fas fa-shopping-cart"></i></a>
+                <div class="header-auth-buttons">
+                    <a href="contact.html?view=login" class="header-auth-btn">Đăng nhập</a>
+                    <a href="contact.html?view=register" class="header-auth-btn">Đăng ký</a>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <main class="auth-page">
+        <section class="auth-card">
+            <div class="auth-card__hero">
+                <h1>Liên hệ quản lý</h1>
+                <p>Gửi thư tới quản lý Tin Jewelry. Tin nhắn sẽ được lưu cục bộ trên máy của bạn.</p>
+            </div>
+            <div class="auth-card__body">
+                <div id="auth-section" style="display: none;">
+                    <div id="auth-status" class="auth-status"></div>
+                    <div id="auth-tabs" class="auth-tabs">
+                        <button type="button" id="show-login" class="auth-switch active">Đăng nhập</button>
+                        <button type="button" id="show-register" class="auth-switch">Đăng ký</button>
+                    </div>
+                    <div id="login-panel" class="auth-panel">
+                        <form id="login-form" class="auth-form">
+                            <div class="auth-field">
+                                <label for="login-email">Email</label>
+                                <input type="email" id="login-email" name="email" placeholder="name@domain.com" required>
+                            </div>
+                            <div class="auth-field">
+                                <label for="login-password">Mật khẩu</label>
+                                <input type="password" id="login-password" name="password" placeholder="Ít nhất 6 ký tự" required>
+                            </div>
+                            <button type="submit" class="auth-submit">Đăng nhập</button>
+                            <div id="login-status" class="form-status"></div>
+                        </form>
+                    </div>
+                    <div id="register-panel" class="auth-panel" style="display:none;">
+                        <form id="register-form" class="auth-form">
+                            <div class="auth-field">
+                                <label for="register-name">Họ tên</label>
+                                <input type="text" id="register-name" name="name" placeholder="Nguyễn Văn A" required>
+                            </div>
+                            <div class="auth-field">
+                                <label for="register-email">Email</label>
+                                <input type="email" id="register-email" name="email" placeholder="name@domain.com" required>
+                            </div>
+                            <div class="auth-field">
+                                <label for="register-phone">Số điện thoại</label>
+                                <input type="tel" id="register-phone" name="phone" placeholder="0901234567" pattern="[0-9]{9,12}" required>
+                            </div>
+                            <div class="auth-field">
+                                <label for="register-password">Mật khẩu</label>
+                                <input type="password" id="register-password" name="password" placeholder="Ít nhất 6 ký tự" required>
+                            </div>
+                            <button type="submit" class="auth-submit">Đăng ký</button>
+                            <div id="register-status" class="form-status"></div>
+                        </form>
+                    </div>
+                </div>
+                <div id="contact-panel">
+                    <form id="contact-form" class="contact-form">
+                        <div class="contact-field">
+                            <label for="contact-name">Tên của bạn</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Nguyễn Văn A" required>
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-email">Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="name@domain.com" required>
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-subject">Chủ đề</label>
+                            <input type="text" id="contact-subject" name="subject" placeholder="Chủ đề thư" required>
+                        </div>
+                        <div class="contact-field">
+                            <label for="contact-message">Nội dung thư</label>
+                            <textarea id="contact-message" name="message" rows="6" placeholder="Viết tin nhắn của bạn ở đây" required></textarea>
+                        </div>
+                        <button type="submit" class="auth-submit contact-submit">Gửi thư</button>
+                        <div id="contact-status" class="form-status"></div>
+                    </form>
+                    <div class="saved-messages">
+                        <h3>Thư đã lưu</h3>
+                        <div id="message-list"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+    <footer class="site-footer">
+        <div class="site-footer__content">
+            <div class="site-footer__section">
+                <h3>Contact Us</h3>
+                <p>123 Jewelry Street, Hanoi, Vietnam</p>
+                <p>Email: support@tinjewelry.com</p>
+                <p>Phone: +84 123 456 789</p>
+            </div>
+            <div class="site-footer__section">
+                <h3>Our Location</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1234567890123!2d105.834
+                    16031500000!3d21.0277633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab81c6a5
+                    a1fb%3A0x0!2zMjEgVHJ1biBTb2kgVGnDqm4!5e0!3m2!1sen!2s!4v0000000000000" width="300" height="200"
+                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="site-footer__section">
+                <h3>Follow Us</h3>
+                <a href="#" class="site-footer__link"><i class="fab fa-facebook-f"></i> Facebook</a> |
+                <a href="#" class="site-footer__link"><i class="fab fa-instagram"></i> Instagram</a> |
+                <a href="#" class="site-footer__link"><i class="fab fa-youtube"></i> YouTube</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
